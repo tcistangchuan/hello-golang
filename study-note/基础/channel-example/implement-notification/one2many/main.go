@@ -13,6 +13,7 @@ func main() {
 	go worker(2, ready, done, 2*time.Second)
 
 	// ready<-1;ready<-2 等同于close()
+	// 从一个已关闭的通道可以接收到无穷个值，我们可以利用这一特性来实现群发通知。
 	close(ready)
 	<-done
 	<-done
