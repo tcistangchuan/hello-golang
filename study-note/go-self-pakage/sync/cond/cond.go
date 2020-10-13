@@ -20,10 +20,10 @@ import (
 func main() {
 	//
 	c := sync.NewCond(&sync.Mutex{})
-	for i := 0; i < 10; i++ {
-		go listen(c)
+	for i := 0; i < 5; i++ {
+		go listen(c, int64(i))
 	}
-	time.Sleep(1 * time.Second)
+	time.Sleep(10 * time.Second)
 	go broadcast(c)
 
 	ch := make(chan os.Signal, 1)
@@ -33,16 +33,16 @@ func main() {
 
 func broadcast(c *sync.Cond) {
 	c.L.Lock()
-	//c.Broadcast() // 唤醒全部
-	c.Signal() // 唤醒等待时间最久的一个goroutine
+	c.Broadcast() // 唤醒全部
+	//c.Signal() // 唤醒等待时间最久的一个goroutine
 	log.Println("start:")
 	c.L.Unlock()
 }
 
-func listen(c *sync.Cond) {
+func listen(c *sync.Cond , i int64) {
+	time.Sleep(time.Second * time.Duration(i))
 	c.L.Lock()
 	c.Wait()
-	time.Sleep(time.Second * 2)
-	log.Println("listen")
+	log.Println("listen", i)
 	c.L.Unlock()
 }
