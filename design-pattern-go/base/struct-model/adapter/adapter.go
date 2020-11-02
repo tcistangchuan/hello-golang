@@ -18,18 +18,6 @@ type PaperBookInterface interface {
 	turnPage()
 }
 
-/**
-纸制书
-*/
-type book struct {
-}
-
-func (*book) open() {
-	fmt.Println("open book")
-}
-func (*book) turnPage() {
-	fmt.Println("turn page")
-}
 
 /**
 电子书转换纸制书的适配器
@@ -49,17 +37,13 @@ func (e *EBookAdapter) turnPage() {
 	fmt.Println("==end==")
 }
 
-/**
-电子书接口
-*/
+// 电子书接口
 type EBookInterface interface {
 	pressStart()
 	pressNext()
 }
 
-/**
-电子书
-*/
+// 电子书
 type EBook struct {
 }
 
