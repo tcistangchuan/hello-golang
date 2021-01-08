@@ -1,32 +1,36 @@
 package singleton
 
-import "sync"
+import (
+	"sync"
+)
 
 var (
 	mutex     sync.Mutex
-	singleton *Singleton
+	singletonInstance *singleton
 	once      sync.Once
 )
 
-type Singleton struct {
+type singleton struct {
+	Age int
+	Name string
 }
 
 // 这种单列模式 弊端：会大量创建锁，释放锁，带来不必要的开销
-func GetInstance() *Singleton {
+func GetInstance() *singleton {
 	mutex.Lock()
 	defer mutex.Unlock()
-	if singleton != nil {
-		return &Singleton{}
+	if singletonInstance == nil {
+		return &singleton{}
 	}
-	return singleton
+	return singletonInstance
 }
 
 // 正确的单列模式
-func GetInstance2() *Singleton {
-	if singleton != nil {
+func GetInstance2() *singleton {
+	if singletonInstance == nil {
 		once.Do(func() {
-			singleton = &Singleton{}
+			singletonInstance = &singleton{}
 		})
 	}
-	return singleton
+	return singletonInstance
 }
