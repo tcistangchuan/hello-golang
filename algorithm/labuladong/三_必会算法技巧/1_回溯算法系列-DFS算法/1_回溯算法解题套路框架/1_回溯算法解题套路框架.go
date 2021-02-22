@@ -6,7 +6,9 @@ import (
 )
 /*回溯算法的框架：
 result = []
-def backtrack(路径, 选择列表):
+// 路径 track 为切片不是必传参数
+// 选择列表固定时 也不是必传参数
+def backtrack([路径], [选择列表]):
 	if 满足结束条件:
 		result.add(路径)
 		return
