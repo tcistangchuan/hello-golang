@@ -32,7 +32,7 @@ func worker(id int, ctx context.Context) {
 			log.Println("结束", id)
 			return
 		case <-time.Tick(1 * time.Second):
-			log.Println("进行中...")
+			log.Println("进行中...", id)
 		}
 	}
 }

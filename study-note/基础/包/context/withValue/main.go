@@ -8,6 +8,7 @@ import (
 
 func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+	// 注意： withValue 的ctx 是 parent context
 	newCtx := context.WithValue(ctx, "name", "tangchuan")
 	newCtx2 := context.WithValue(newCtx, "old", "18")
 	defer cancel()
