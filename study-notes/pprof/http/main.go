@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
-	"stuty-go/study-note/pprof/http/studyPprof"
+	"stuty-go/study-notes/pprof/http/studyPprof"
 )
 
 // 默认 studyPprof 的配置

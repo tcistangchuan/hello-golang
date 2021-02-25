@@ -1,0 +1,164 @@
+```
+
+163邮箱：
+tangchuanwork@163.com
+Laotang0.
+github-username: tcistangchuan Laotang0.
+
+#qa慢病管理
+https://vue-panel-qa.medlinker.com/v2/#/login?VNK=e7339618 
+gcw@medlinker.com
+g123456
+
+https://vue-panel-qa.medlinker.com/v2/#/h5/chronic-disease/list/1/group-chat?VNK=3a45ad05
+zhuolincs@medlinker.com
+123456
+
+
+#新人指导
+https://team.medlinker.com/docs/newin/welcome/
+medlinker
+medlinker
+
+# 线上db
+登录地址   https://auditsql.medlinker.tech
+用户  tangchuan 
+密码   Medlinker123
+
+#公司wifi密码：
+账号：Medlinker
+密码：Medlinker321#
+
+#邮箱
+公司邮箱账号：tangchuan@medlinker.com
+密码：Laotang123
+
+#OA系统  http://oa.medlinker.com/seeyon/main.do;jsessionid=C61275B1F4404B1A6C0AA725531F49FE
+账号 tangchuan
+密码 laotang123
+
+#阿里云子账号
+地址：https://signin.aliyun.com/medlinker.onaliyun.com/login.htm
+账号：tangchuan@medlinker.onaliyun.com
+密码：laotang123
+
+#发布版本,获取配置文件
+https://jenkins.medlinker.com/  开发环境
+https://jenkins-test.medlinker.tech/  测试环境
+账号密码：tangchuan  tangchuan320
+zhaosuji    zhaosuji819
+
+
+#git仓库
+https://git.medlinker.com/
+账号密码
+tangchuan
+laotang525521662
+
+#api文档地址：http://yapi.int.medlinker.com/
+tangchuan
+tangchuan@medlinker.com
+laotang123
+
+#tapd (领取需求)
+https://www.tapd.cn/cloud_logins/login
+18200376514
+Laotang123
+
+#跳板机
+地址：http://114.215.171.183:8000/login/
+    您的用户名： tangchuan
+    您的权限： 普通用户
+    您的web登录密码： JCBmCTvU6Lq3E8Yu
+    您的ssh密钥文件密码： aRnJuGs1rHFo8qb1
+    密钥下载地址： http://114.215.171.183:8000/juser/key/down/?uuid=e1d2866f795544bf98c8849d1e62c56a
+
+ssh tangchuan@114.215.171.183 -i ~/.ssh/jump.pem
+
+#markdown
+#confluence (wiki) 项目介绍
+地址：https://wiki.medlinker.com/pages/viewpage.action?pageId=17602560
+账号/密码  tangchuan  laotang123
+
+#jenkins(获取.env)
+
+#医联app下载
+https://www.pgyer.com/jzUL
+med123456
+
+#测试环境手机验证码：637900  437900
+
+#hosts
+192.168.199.101 d2d.med3.docker.local
+192.168.199.101  d2d-ph.med3.docker.local
+192.168.199.101  passport.med3.docker.local
+192.168.199.101  svr.med3.docker.local
+192.168.199.101  app.med3.docker.local
+192.168.199.101 app-web.med3.docker.local
+192.168.199.101 app-panel.med3.docker.local
+192.168.199.101 wapi.med3.docker.local
+192.168.199.101 grape.med3.docker.local
+
+#开发数据库配置信息
+DB=med_d2d
+DB_HOST=118.178.143.109
+DB_PORT=3307
+DB_USERNAME=meddev
+DB_PASSWORD=akdjfkaj2399I
+
+开发环境：
+mysql5.6： 47.98.48.43:3306，账号密码 meddev/akdjfkaj2399I
+mysql5.7： 47.98.48.43:3307，账号密码 meddev/akdjfkaj2399I
+mysql8:   116.62.79.79:3308，账号密码 meddev/Mypwd123!
+
+#测试数据库配置信息
+DB=med_d2d
+DB_HOST=118.31.236.23
+DB_PORT=3306
+DB_USERNAME=test_write
+DB_PASSWORD=Q^pI&Vq!Hf9FokCm
+
+#资源申请
+资源申请邮件：
+收件人：luoyu@medlinker.com
+抄送人：xiejuehan@medlinker.com, yuemaofei@medlinker.net, leixiaoli@medlinker.net, weijinfeng@medlinker.com
+
+
+zhaosuji    zhaosuji819
+
+
+抬头类型：单位
+抬头：成都医云科技有限公司
+税号：91510100397830968C
+单位地址：成都高新区天华一路99号6栋2层3号
+电话号码：028-83350767
+开户银行：建行成都高新支行
+银行账户：51001406137051533152
+```
+
+
+
+```
+新手村指引：http://team.medlinker.com  medlinker /medlinker123
+（新手村默认有新手保护，但遇到NPC无效）
+﻿
+组内技术约定：https://wiki.medlinker.com/pages/viewpage.action?pageId=17607941﻿
+周末加班统计表：https://docs.qq.com/sheet/DWHVpQ2VTWFdvYlJJ?tab=BB08J2 （自我核对，有问题提出）
+﻿
+追踪链：
+QA: https://jaeger-qa.medlinker.tech/search  jaeger / fr4sGBQ#3w
+线上：https://jaeger.medlinker.tech  jaeger / Medlinker!@#
+﻿
+监控：
+线上： https://grafana.medlinker.tech  guest / 123456
+
+
+https://jaeger.medlinker.tech 
+
+jaeger / Medlinker!@#
+
+
+尘封科技
+米哈游、莉莉丝、叠纸，成都这边我就听说卓航不怎么加班
+```
+

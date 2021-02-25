@@ -1,0 +1,15 @@
+- phpstorm 快捷键
+
+```
+  CTRL+N 查找类
+	CTRL+SHIFT+N 全局搜索文件 ,优先文件名匹配的文件
+	CTRL+G 定位行，跳转行
+	CTRL+SHIFT+F 在指定路径查找文本字符 (在directory中设置)
+	CTRL+R 当前窗口替换文本
+	CTRL+E 最近打开的文件
+	CTRL+ALT+L 格式化代码
+	F5 复制文件/文件夹
+	SHIFT+F2 高亮错误或警告快速定位错误，多个错误循环高亮
+	alt+6 查找todo注释
+```
+
