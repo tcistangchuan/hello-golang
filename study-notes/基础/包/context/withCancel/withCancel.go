@@ -6,6 +6,11 @@ import (
 	"time"
 )
 
+/*
+context 主要用来在 goroutine 之间传递上下文信息，包括：取消信号、超时时间、截止时间、k-v 等。
+context 几乎成为了并发控制和超时控制的标准做法。
+
+*/
 // context 用WithCancel实现通知
 //context.WithCancel 函数能够从 context.Context 中衍生出一个新的子上下文并返回
 //用于取消该上下文的函数（CancelFunc）。一旦我们执行返回的取消函数，当前上下文以及它
