@@ -17,6 +17,7 @@ func main() {
 	go func() {
 		select {
 		case <-newCtx2.Done():
+			// 相当于 newCtx2 继承了 newctx
 			log.Println("end", newCtx2.Value("name"))
 			return
 		}

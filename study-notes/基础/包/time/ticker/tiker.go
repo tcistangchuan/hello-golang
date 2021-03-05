@@ -13,10 +13,11 @@ func main() {
 	//	log.Println("done")
 	//}
 
+
 	for {
 		select {
 		case <-time.Tick(2 * time.Second):
-			log.Println("done")
+			log.Println("done1")
 		}
 	}
 

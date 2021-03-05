@@ -1,34 +1,44 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"time"
 )
 
 // 一对多的通知
 func main() {
-	ready, done := make(chan int, 2), make(chan int, 2)
+	N := 10
+	exit := make(chan struct{})
+	done := make(chan struct{}, N)
 
-	go worker(1, ready, done, time.Second)
-	go worker(2, ready, done, 2*time.Second)
+	//start N worker goroutines
+	for i := 0; i < N; i++ {
+		// 开启10个协程工作
+		go func(n int) {
+			for {
+				select {
+				// wait for exit signal
+				case <-exit: // 等待结束信号（要么推送消息到exit通道，要么close掉exit通道）
+					fmt.Printf("worker goroutine #%d exit\n", n)
+					done <- struct{}{} //发送完成任务信号
+					return // 结束工作
+				case <-time.Tick(time.Second):
+					fmt.Printf("worker goroutine #%d is working...\n", n)
+				}
+			}
+		}(i)
+	}
 
-	// ready<-1;ready<-2 等同于close()
-	// 从一个已关闭的通道可以接收到无穷个值，我们可以利用这一特性来实现群发通知。
-	close(ready)
-	<-done
-	<-done
+	time.Sleep(3 * time.Second)
+	//广播通知
+	close(exit)
+
+	//wait for all worker goroutines exit
+	for i := 0; i < N; i++ {
+		<-done
+	}
+
+	fmt.Println("main goroutine exit")
+
 }
 
-func worker(id int, ready <-chan int, done chan<- int, d time.Duration) {
-
-	log.Println("start:", id)
-	<-ready
-
-	// ...
-	<-time.After(d)
-
-	log.Println("done:", id)
-	done <- id
-	//a := []int{}
-
-}

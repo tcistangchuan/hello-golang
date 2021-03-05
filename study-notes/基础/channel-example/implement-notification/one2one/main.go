@@ -18,7 +18,7 @@ func example_1() {
 	go func() {
 		// ...
 		time.Sleep(5 * time.Second)
-		ch <- 1
+		ch <- 1 // 通知监控结束
 	}()
 	for {
 		// 模拟一个后台程序

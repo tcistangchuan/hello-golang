@@ -17,46 +17,40 @@
 - Golang 中常用的并发控制模型有三种:
 
    ```
-  1.用互斥锁sync.Mutex
+  1.用互斥锁sync.Mutex //能控制并发对共享量的读写
   func main() {
-      var mu sync.Mutex
+    var mu sync.Mutex
+  	mu.Lock()
+  	go func(){
+  		time.Sleep(time.Second)
+  		fmt.Println("coding")
+  		defer mu.Unlock()
   
-      go func(){
-          fmt.Println("你好, 世界")
-          mu.Lock()
-      }()
-  
-      mu.Unlock()
+  	}()
+  	fmt.Println("start")
+  	mu.Lock()
+  	fmt.Println("end")
+  	defer  mu.Unlock()
   }
   
   2.通过channel生产者消费者模型实现并发控制
-  // 生产者: 生成 factor 整数倍的序列
-  func Producer(factor int, out chan<- int) {
-      for i := 0; ; i++ {
-          out <- i*factor
-      }
-  }
-  
-  // 消费者
-  func Consumer(in <-chan int) {
-      for v := range in {
-          fmt.Println(v)
-      }
-  }
   func main() {
-      ch := make(chan int, 64) // 成果队列
+  	ch := make(chan int)
+  	go func(){
+  		fmt.Println("生产者")
+  		ch<- 1
+  	}()
   
-      go Producer(3, ch) // 生成 3 的倍数的序列
-      go Producer(5, ch) // 生成 5 的倍数的序列
-      go Consumer(ch)    // 消费 生成的队列
+  	fmt.Println("消费者")
+  	time.Sleep(2*time.Second)
   
-      // 运行一定时间后退出
-      time.Sleep(5 * time.Second)
   }
   
   3.通过sync包中的WaitGroup实现并发控制
   
+  4.contex 能结束掉超时的协程
+  
   ```
-
+  
   
 
