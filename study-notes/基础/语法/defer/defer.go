@@ -22,4 +22,5 @@ func test() string {
 	defer func() string {
 		return "123"
 	}()
+	return ""
 }

@@ -14,8 +14,8 @@ func Test_example04(t *testing.T) {
 //因此无论 a 被如何修改，其副本 b 依旧保持原值，并且参与循环的是 b，
 //因此 v 从 b 中取出的仍旧是 a 的原值，而非修改后的值。
 func example04() {
-	var a = [5]int{1, 2, 3, 4, 5}
-	var r [5]int
+	var a = []int{1, 2, 3, 4, 5}
+	r := make([]int,5)
 
 	for i, v := range a {
 		if i == 0 {

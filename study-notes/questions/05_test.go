@@ -31,9 +31,9 @@ func example05() {
 	slice[0] = 1
 	slice[1] = 2
 	change(slice...)
-	fmt.Println(slice) // 12000
+	fmt.Println("slice:",slice) // 12000
 	change(slice[0:2]...)
-	fmt.Println(slice) // 123
+	fmt.Println("slice:",slice) // 123
 }
 
 func example0502() {

@@ -50,6 +50,7 @@ func example0602() {
 	counter := 0
 	for k, v := range m {
 		if counter == 0 {
+			fmt.Println("first-key:",k)
 			delete(m, "A")
 		}
 		counter++

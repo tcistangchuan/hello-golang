@@ -34,5 +34,5 @@ func example0802() {
 
 	var b map[int]int
 	fmt.Println(b[1])
-	b[1] = 1 // panic
+	//b[1] = 1 // panic
 }

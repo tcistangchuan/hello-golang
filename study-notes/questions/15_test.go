@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"testing"
+)
 
-func main(){
+func Test15(test *testing.T){
 	//t := []int{1,2} // 这种赋值 cap 为2，append 就会创建新的空间
 	t := make([]int,0,3)
 	t = append(t,1)

@@ -1,4 +1,4 @@
-- new()和make的区别
+- new()和make的区别（传入参数和返回参数类型不一样）
 
   ```go
   只声明未赋值的变量，golang都会自动为其初始化为零值，基础数据类型的零值比较简单，引用类型和指针的零值都为nil，nil类型不能直接赋值，因此需要通过new,make开辟一个内存，或指向一个变量。
@@ -465,3 +465,22 @@
 
   
 
+- Interface 是可比较的
+
+  ```
+  关于interface的概念：
+  
+  1.interface 包含两个字段 type 和data，要判断interface相等需要 type 和 data 都相等。
+  2.interface 的零值为 nil
+  3.生成 interface 有两种情况： interface 赋值给 interface， 其他对象赋值给 interface。
+  
+  interface 赋值给 interface：
+  直接用原变量的 type 字段生成新变量的 type 字段， 原变量的 data 赋值给新变量的 data
+  
+  其他类型赋值给 interface:
+  使用原变量的类型赋值给 interface 的 type 字段，原变量的值赋值给 interface 的 data 字段。
+  
+  
+  ```
+
+  
