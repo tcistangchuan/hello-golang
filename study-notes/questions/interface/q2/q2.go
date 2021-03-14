@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func printAll(vals interface{}) {
+func printAll(vals interface{}) {//1
 	fmt.Println(vals)
 }
 
