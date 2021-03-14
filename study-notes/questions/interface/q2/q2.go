@@ -2,11 +2,11 @@ package main
 
 import "fmt"
 
-func printAll(vals interface{}) { //1
+func printAll(vals interface{}) {
 	fmt.Println(vals)
 }
 
-func main(){
+func main() {
 	names := []string{"stanley", "david", "oscar"}
 	printAll(names)
 }
