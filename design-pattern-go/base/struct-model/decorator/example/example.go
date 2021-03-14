@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type scales interface {
 	// 获取当前的重量
@@ -53,5 +55,4 @@ func main(){
 		other:  p2,
 	}
 	fmt.Println("加上外套净重：",p3.getWeight())
-
 }

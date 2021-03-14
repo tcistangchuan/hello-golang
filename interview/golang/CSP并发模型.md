@@ -17,7 +17,7 @@
 - Golang 中常用的并发控制模型有三种:
 
    ```
-  1.用互斥锁sync.Mutex //能控制并发对共享量的读写
+  1.用互斥锁让多个协程可以串行执行
   func main() {
     var mu sync.Mutex
   	mu.Lock()
@@ -33,22 +33,13 @@
   	defer  mu.Unlock()
   }
   
-  2.通过channel生产者消费者模型实现并发控制
-  func main() {
-  	ch := make(chan int)
-  	go func(){
-  		fmt.Println("生产者")
-  		ch<- 1
-  	}()
+  2.通过channel实现的广播模式，实现对多个协程的通知，比如通知结束。
   
-  	fmt.Println("消费者")
-  	time.Sleep(2*time.Second)
   
-  }
+  3.通过sync包中的WaitGroup实现同时执行多个协程，当最慢的协程执行完，才结束。
+  	开启多个协程同时处理请求，全部请求之后返回主函数。
   
-  3.通过sync包中的WaitGroup实现并发控制
-  
-  4.contex 能结束掉超时的协程
+  4.多个协程执行，其中一个协程执行完就返回。用带缓冲的channel
   
   ```
   

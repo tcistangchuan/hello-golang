@@ -6,7 +6,7 @@ import (
 
 func main() {
 	//partition([]int{4,1,6,3,2,5},0,5,4)
-	partition([]int{11, 14, 11, 22, 1, 11}, 0, 5)
+	//partition([]int{11, 14, 11, 22, 1, 11}, 0, 5)
 	nums := []int{5, 14, 11, 22, 1, 31, 2, 2, 3, 4, 6}
 	fmt.Println(sortArray(nums))
 
@@ -52,7 +52,7 @@ func quickSelectSort(nums []int, k int) int {
 func partition(nums []int, left, right int) (p int) {
 	initVal := nums[left]
 	initIndex := left
-	for left != right {
+	for left < right {
 		for left < right && nums[right] >= initVal {
 			right--
 		}

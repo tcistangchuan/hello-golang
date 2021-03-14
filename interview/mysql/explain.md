@@ -10,9 +10,8 @@
   3.锁或者死锁。
   4.没有limit限制，查询出来的数据量太大。
   5.返回了不必要的字段。
-  6.数据表本身数据量太大，没有分表。
   ```
-
+  
 - sql语句优化
 
   ```
@@ -20,6 +19,12 @@
   2.只返回需要的字段
   3.合理使用批量插入
   4.每次查询返回合理的limit数据
+  ```
+
+- 大数据分页优化
+
+  ```
+  SELECT * FROM product WHERE ID >=(select id from product limit 866613, 1) limit 20
   ```
 
   
@@ -33,7 +38,7 @@
   all<index<range<ref<eq_ref<const<system
   
   all:全扫描
-  index:索引树遍历扫描
+  index:索引树遍历扫描。（虽然where条件中没有用到索引，但select中的字段有索引，所以只要全表扫描索引即可，直接使用索引树查找数据）
   range:范围内索引树扫描
   ref:非主键非唯一索引等值扫描或者唯一索引的前缀扫描
   eq_ref:join连表使用了唯一索引或者主键索引字段
@@ -55,11 +60,14 @@
   四、【Using filesort】[需要优化]
   Extra为Using filesort说明，得到所需结果集，需要对所有记录进行文件排序。
   这类SQL语句性能极差，需要进行优化。
-  典型的，order by 上的字符没有命中索引，就会触发filesort，常见的优化方案是，在order by的列上添加索引，避免每次查询都全量排序。
+  典型的，order by 上的字段没有命中索引，就会触发filesort，常见的优化方案是，在order by的列上添加索引，避免每次查询都全量排序。
   
   五、【Using temporary】[需要优化]
   Extra为Using temporary说明，需要建立临时表(temporary table)来暂存中间结果。
   这类SQL语句性能较低，往往也需要进行优化。
+  
+  原因：group by 和 order by 的字段不一样或者是字段没加索引
+  
   典型的，group by和order by同时存在，且作用于不同的字段时，就会建立临时表，以便计算出最终的结果集。
   产生的条件：
   	如果GROUP BY 的列没有索引,产生临时表.
@@ -70,10 +78,10 @@
   　如果DISTINCT 和 ORDER BY的列没有索引,产生临时表.
     如果group by 的列没有索引,必产生内部临时表,
     如果order by 与group by为不同列时,或多表联查时order by ,group by 包含的列不是第一张表的列,将会产生临时表
-  
+
   ```
   
-
+  
   
   
   
