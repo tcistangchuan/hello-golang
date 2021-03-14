@@ -71,8 +71,8 @@
   扩展：
   redis实现延迟队列：
     (1) 将任务的执行时间作为score，要执行的任务数据作为value，存放在zset中； 
-  	(2) 用定时任务定时查询指定区间内的成员，可以用zrangebyscore key min max [WITHSCORES] [LIMIT] 命令来实现; 
-  	(3) 如果最小的分数小于等于当前时间戳，就将该任务取出来执行，否则休眠一段时间后再查询
+    (2) 用定时任务定时查询指定区间内的成员，可以用zrangebyscore key min max [WITHSCORES] [LIMIT] 命令来实现; 
+    (3) 如果最小的分数小于等于当前时间戳，就将该任务取出来执行，否则休眠一段时间后再查询
   ```
 
 - redis刁难问题

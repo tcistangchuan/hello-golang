@@ -13,9 +13,8 @@
   
     1.用context.WithTimeout()和select。WithTimeout方法第二个参数可以设置超时时间，如果超时会自动触发cancel()函数 ,Done通道负责监听context什么时候完成。
     2.channel+select+time.After。先设置一个channel标示，开启一个协程，处理完任务就往channel中写数据，用select在主函数里面监听channel的读操作，同时监听time.After的读操作。
-    3.
   ```
-
+  
 - golang中的自增操作n++是原子操作吗
 
   ```
