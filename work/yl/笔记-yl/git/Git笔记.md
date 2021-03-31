@@ -90,20 +90,31 @@ git commit -m '备注' 文件路径
 已经commit未push的操作：
 # 查看已经commit的代码详情和某个分支作对比
 git diff origin/xx xx（HEAD）
+
+
 # git reset，回退到某个commit_id
 git reset --hard head 回退到当前commit的版本 清除工作区和暂缓区代码
 git reset head^ 回退到上一个版本
 git reset commit_id 
 其实就是--soft 、--mixed以及--hard是三个恢复等级。使用--soft就仅仅将头指针恢复，已经add的缓存以及工作空间的所有东西都不变。如果使用--mixed(git reset默认)，就将头恢复掉，已经add的缓存也会丢失掉，工作空间的代码什么的是不变的。如果使用--hard，那么一切就全都恢复了，头变，aad的缓存消失，代码什么的也恢复到以前状态。
-# 撤销某次commt_id
-git revert commit_id
-# 查看某次提交所修改的文件
-git show --stat commit_id
-git show commit_id [文件路径] 查看某次提交某个文件的修改详情
+
+# git revert 撤销某次commt_id
+git revert HEAD 撤销前一次 commit 
+git revert HEAD^ 撤销前前一次 commit 
+git revert commit-id (撤销指定的版本，撤销也会作为一次提交进行保存） 
+git revert是提交一个新的版本，将需要revert的版本的内容再反向修改回去，版本会递增，不影响之前提交的内容。
+#修改冲突的文件
+git add 冲突的文件
+git revert --continue
 
 已经push的操作
 # 撤销/回退
 git reset 或者 git revert , 再 git push --force
+
+
+# 查看某次提交所修改的文件
+git show --stat commit_id
+git show commit_id [文件路径] 查看某次提交某个文件的修改详情
 ```
 
 
