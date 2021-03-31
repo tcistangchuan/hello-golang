@@ -45,7 +45,7 @@ func main() {
 	var a uint = 60 /* 60 = 0011 1100 */
 	//var b uint = 13      /* 13 = 0000 1101 */
 
-	fmt.Println(a << 3)
-	fmt.Println(a >> 3)
+	fmt.Println(a << 3) // a*(2^3)
+	fmt.Println(a >> 3) //a/(2^3)
 
 }
